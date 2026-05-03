@@ -2,6 +2,12 @@
 
 All notable changes to `@metaengine/openapi-fetch` will be documented in this file.
 
+## [1.0.1] - 2026-05-04
+
+### Bug Fixes
+
+- **Fixed: `--error-handling` widens nullable types twice** — when `--error-handling` was enabled, nullable response types could be typed as `T | null | null`. The duplicate widening is now suppressed so the response type is `T | null` as intended.
+
 ## [1.0.0] - 2026-04-24
 
 Initial public release.
