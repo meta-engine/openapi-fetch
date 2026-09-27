@@ -2,6 +2,21 @@
 
 All notable changes to `@metaengine/openapi-fetch` will be documented in this file.
 
+## [1.1.2] - 2026-09-27
+
+### Bug Fixes
+
+- JSON error bodies using `application/problem+json` or another `+json` media type are now parsed into `HttpError.body`, including mixed-case media types and charset parameters.
+- Models referenced only by error responses, together with their enum and base-model dependencies, are now retained when using `--include-tags`.
+- Inline error-response bodies now generate named models, including when no tag filter is used.
+- Nullable primitive aliases preserve `| null` in generated TypeScript.
+- Models using `allOf` preserve required inherited properties and compatible property refinements.
+
+### Dependencies
+
+- Bundles `MetaEngine.TypeScript.OpenApi.Fetch` 1.1.3.
+- Updated the bundled OpenAPI reader to Microsoft.OpenApi 3.5.4, which fixes circular-reference parsing failures ([CVE-2026-49451](https://github.com/advisories/GHSA-v5pm-xwqc-g5wc)).
+
 ## [1.1.1] - 2026-05-26
 
 ### Features
